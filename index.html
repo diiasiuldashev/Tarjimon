@@ -121,3 +121,64 @@ Mukammal tarjimon
   </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <title>Diyas Tarjimon</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: linear-gradient(to right, #3f87a6, #ebf8e1, #f69d3c);
+      text-align: center;
+      padding: 50px;
+    }
+    input, button {
+      font-size: 18px;
+      padding: 10px;
+      width: 300px;
+      margin: 10px;
+    }
+    #output {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Diyas Tarjimon</h1>
+  <input type="text" id="word" placeholder="So‘z kiriting">
+  <br>
+  <select id="targetLang">
+    <option value="en">Inglizcha</option>
+    <option value="ru">Ruscha</option>
+    <option value="ar">Arabcha</option>
+    <option value="tr">Turkcha</option>
+  </select>
+  <br>
+  <button onclick="translate()">Tarjima</button>
+  <p id="output"></p>
+
+  <script>
+    async function translate() {
+      const text = document.getElementById('word').value;
+      const target = document.getElementById('targetLang').value;
+
+      const response = await fetch("https://libretranslate.de/translate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          q: text,
+          source: "uz",
+          target: target,
+          format: "text"
+        })
+      });
+
+      const data = await response.json();
+      document.getElementById('output').innerText = "Tarjima: " + data.translatedText;
+    }
+  </script>
+</body>
+</html>
