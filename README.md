@@ -125,3 +125,35 @@
   </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Diyas Tarjimon</title>
+</head>
+<body>
+  <h2>So‘zni tarjima qiling</h2>
+  <input type="text" id="word" placeholder="So‘z kiriting">
+  <button onclick="translate()">Tarjima</button>
+  <p id="output"></p>
+
+  <script>
+    async function translate() {
+      const text = document.getElementById('word').value;
+      const response = await fetch("https://libretranslate.de/translate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          q: text,
+          source: "uz",
+          target: "en", // kerakli til (masalan: 'ar' arabcha, 'ru' ruscha)
+          format: "text"
+        })
+      });
+
+      const data = await response.json();
+      document.getElementById('output').innerText = "Tarjima: " + data.translatedText;
+    }
+  </script>
+</body>
+</html>
