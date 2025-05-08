@@ -55,3 +55,34 @@
   </script>
 </body>
 </html>
+<script>
+  const dictionary = {
+    "qalam": ["pen", "pencil", "stylus"],
+    "kitob": ["book", "volume", "publication"],
+    "stol": ["table", "desk"],
+    "ko'z": ["eye", "sight", "vision"],
+    "yorug'lik": ["light", "brightness", "illumination"],
+    "daraxt": ["tree", "plant"],
+    "uy": ["house", "home", "residence"],
+    "telefon": ["phone", "mobile", "cellphone"],
+    "maktab": ["school", "academy", "institution"],
+    "daryo": ["river", "stream", "waterway"]
+  };
+
+  document.getElementById("translate-btn").addEventListener("click", function () {
+    const word = document.getElementById("input-word").value.trim().toLowerCase();
+    const translations = dictionary[word];
+    const resultElement = document.getElementById("result");
+
+    if (translations) {
+      resultElement.innerHTML = `<strong>Tarjimalar:</strong> ${translations.join(", ")}`;
+    } else {
+      let suggestions = Object.keys(dictionary).filter(k => k.startsWith(word.slice(0, 2)));
+      if (suggestions.length > 0) {
+        resultElement.innerHTML = `Bu so‘z uchun tarjima topilmadi.<br><em>Shu so‘zlar nazarda tutilganmi?</em><br>${suggestions.join(", ")}`;
+      } else {
+        resultElement.textContent = "Bu so‘z lug‘atda topilmadi.";
+      }
+    }
+  });
+</script>
