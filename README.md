@@ -86,3 +86,42 @@
     }
   });
 </script>
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <title>Diyas Tarjimon</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      color: white;
+      text-align: center;
+      padding: 30px;
+    }
+    input {
+      padding: 10px;
+      width: 300px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Diyas Tarjimon</h1>
+  <input type="text" id="text" placeholder="So‘z yoki jumla kiriting">
+  <button onclick="translate()">Tarjima</button>
+
+  <script>
+    function translate() {
+      const text = document.getElementById('text').value.trim();
+      const url = "https://translate.google.com/?sl=auto&tl=en&text=" + encodeURIComponent(text) + "&op=translate";
+      window.open(url, "_blank");
+    }
+  </script>
+</body>
+</html>
