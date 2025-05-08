@@ -1,2 +1,0 @@
-# Tarjimon
-Mukammal tarjimon

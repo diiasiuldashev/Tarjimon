@@ -1,0 +1,66 @@
+# Tarjimon
+Mukammal tarjimon
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tarjimon</title>
+</head>
+<body>
+  <h1>So'z kiriting:</h1>
+  <input type="text" id="soz" placeholder="Masalan: qalam">
+  <button onclick="tarjima()">Tarjima</button>
+  <p id="natija"></p>
+
+  <script>
+    const lugat = {
+      "kitob": "book",
+      "qalam": "pen",
+      "stol": "table",
+      "oyna": "window",
+      "suv": "water",
+      "non": "bread",
+      "maktab": "school",
+      "o'qituvchi": "teacher"
+    };
+
+    function tarjima() {
+      const soz = document.getElementById("soz").value.toLowerCase();
+      const tarjima = lugat[soz];
+      document.getElementById("natija").innerText = tarjima ? `Tarjimasi: ${tarjima}` : "Tarjima topilmadi.";
+    }
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tarjimon</title>
+</head>
+<body>
+  <h1>So'z kiriting:</h1>
+  <input type="text" id="soz" placeholder="Masalan: qalam">
+  <button onclick="tarjima()">Tarjima</button>
+  <p id="natija"></p>
+
+  <script>
+    const lugat = {
+      "kitob": "book",
+      "qalam": "pen",
+      "stol": "table",
+      "oyna": "window",
+      "suv": "water",
+      "non": "bread",
+      "maktab": "school",
+      "o'qituvchi": "teacher"
+    };
+
+    function tarjima() {
+      const soz = document.getElementById("soz").value.toLowerCase();
+      const tarjima = lugat[soz];
+      document.getElementById("natija").innerText = tarjima ? `Tarjimasi: ${tarjima}` : "Tarjima topilmadi.";
+    }
+  </script>
+</body>
+</html>
